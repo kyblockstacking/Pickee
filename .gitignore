@@ -1,0 +1,6 @@
+node_modules
+*.json
+*.lock
+.vscode
+.DS_Store
+
