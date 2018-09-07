@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Linking Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--Linking CSS stylesheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style_index.css">
+    <!--Linking JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Linking Fav Icon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon/heart.png" />
+    <title>Date Night Front Page</title>
+</head>
+<body>
+
+<form class="form-inline">
+    <!-- Date form -->
+    <input type="text" class="form-control mb-2 mr-sm-2" id="dateInput" placeholder="YYYY-MM-DD">
+    <!-- Budget form -->
+    <select class="form-control" id="budgetInput">
+            <option>Select budget</option>
+            <option>$</option>
+            <option>$$</option>
+            <option>$$$</option>
+            <option>$$$$</option>
+    </select>
+    <!-- Zip code form -->
+    <input type="text" class="form-control mb-2 mr-sm-2" id="zipInput" placeholder="Zip Code">
+    <!-- Submit button -->
+    <button type="button" class="btn btn-primary">Submit</button>
+
+</form>      
+
+
+<script>
+
+// Generates a new wallpaper on reload
+function getWallpaper() {
+    var key = "f9914d2594035aa2a981e0f4f152f5e8c3302bafa1efdb36fb8a21a6d695452d";
+    $.ajax({
+        url: "https://api.unsplash.com/photos/random?query=desktopwallpaper&client_id=" + key,
+        method: "GET"
+    }).then(function(data) {
+        $("body").css("background-image", `url(${data.urls.full})`)
+    })
+}
+
+//limited api calls, uncomment when you want it functional 50req/hour
+getWallpaper();
+
+// NEED TO LINK JAVASCRIPT FILE    
+    
+</script>
+
+</body>
+</html>
