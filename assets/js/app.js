@@ -6,35 +6,66 @@ var date = "20180920"
 
 //ticketmaster music events 
 $.ajax({
-    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugXRSfv8iRIcixf8XbiSrD0iIgYgOHFq&classificationName=music&city=" + city + "&startDate=" + date,
+    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugXRSfv8iRIcixf8XbiSrD0iIgYgOHFq&classificationName=music&size=50&city=" + city + "&startDate=" + date,
     method: "GET"
 }).then(function(response){
-    console.log(response);
-    var musicEvents = response._embedded.events;
-    console.log(musicEvents);
-    var musicEventName = musicEvents[9].name;
-    var musicEventUrl = musicEvents[9].url;
-    var musicEventImage = musicEvents[9].images[0].url;
-    console.log(musicEventName);
-    console.log(musicEventUrl);
-    console.log(musicEventImage);
     
+    var musicEvents = response._embedded.events;
+    var eventsWithPriceRanges = musicEvents.filter(function(event) {
+        return event.priceRanges;
+    });
+    eventsWithPriceRanges = eventsWithPriceRanges.slice(0, 12);
+    console.log(eventsWithPriceRanges);
+    
+    eventsWithPriceRanges.forEach((event) => {
+        var musicEventName = event.name;
+        var musicEventUrl = event.url;
+        var musicEventImage = event.images[0].url;
+        var priceMax = event.priceRanges[0].max;
+        console.log(musicEventName);
+        console.log(musicEventUrl);
+        console.log(musicEventImage);
+        console.log(priceMax);
+    });
+    {
+      
+    
+    
+}
+
+
 })
 
 // ticketmaster sports events 
 $.ajax({
-    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugXRSfv8iRIcixf8XbiSrD0iIgYgOHFq&classificationName=sports&city=" + city + "&startDate=" + date,
+    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugXRSfv8iRIcixf8XbiSrD0iIgYgOHFq&classificationName=sports&size=50&city=" + city + "&startDate=" + date,
     method: "GET"
 }).then(function(response){
-    console.log(response);
+    
     var sportsEvents = response._embedded.events;
     console.log(sportsEvents);
-    var sportsEventName = sportsEvents[9].name;
-    var sportsEventUrl = sportsEvents[9].url;
-    var sportsEventImage = sportsEvents[9].images[0].url;
-    console.log(sportsEventName);
-    console.log(sportsEventUrl);
-    console.log(sportsEventImage);
+    var eventsWithPriceRanges = sportsEvents.filter(function(event){
+        return event.priceRanges;
+    });
+    console.log(eventsWithPriceRanges);
+    eventsWithPriceRanges = eventsWithPriceRanges.slice(0, 12);
+    console.log(eventsWithPriceRanges);
+
+    eventsWithPriceRanges.forEach(event => {
+        var sportsEventName = event.name;
+        var sportsEventUrl = event.url;
+        var sportsEventImage = event.images[0].url;
+        var priceMax = event.priceRanges[0].max;
+        console.log(sportsEventName);
+        console.log(sportsEventUrl);
+        console.log(sportsEventImage);
+        console.log(priceMax);
+        
+    });
+    
+    
+    
+    
 })
 
 
