@@ -5,9 +5,8 @@
 // Variables
 // -------------------------------------------------->
 const userParams = {
-    dataTime: "20180920",
-    location: "los angeles",
-    maxBudget: "100"
+    location: localStorage.getItem("city"),
+    maxBudget: localStorage.getItem("budget")
 },
 dollars = {
     $: 8,
