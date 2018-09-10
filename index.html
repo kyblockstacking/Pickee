@@ -8,13 +8,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--Linking CSS stylesheet-->
     <link rel="stylesheet" type="text/css" href="assets/css/style_index.css">
+    <!-- Linking Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!--Linking JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Linking Fav Icon -->
     <link rel="icon" type="image/png" href="assets/images/favicon/heart.png" />
-    <title>Date Night Front Page</title>
+    <!-- Linking Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <title>Pickee Front Page</title>
 </head>
 <body>
+
+    <div class="banner">
+        <h1 class="brandName">Pickee<i class="far fa-heart brandLogo"></i></h1>
+        <h6 class="brandSlogan"><i>Are you Pickee?</i></h6>
+    </div>
+
 
 <form class="form-inline">
     <!-- Date form -->
@@ -28,32 +39,38 @@
             <option>$$$$</option>
     </select>
     <!-- Zip code form -->
-    <input type="text" class="form-control mb-2 mr-sm-2" id="zipInput" placeholder="City location">
-    <!-- Submit button -->
-    <button type="button" class="btn btn-primary">Submit</button>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="zipInput" placeholder="City destination">
 
 </form>      
+
+<!-- Submit button -->
+<div class="button_start">
+<a href="homepage.html"><button type="button" class="btn btn-primary" id="submit_button">PLAN MY DATE</button></a>
+</div>
 
 
 <script>
 
-// Generates a new wallpaper on reload
+// Generates a new wallpaper on load
 function getWallpaper() {
     var key = "f9914d2594035aa2a981e0f4f152f5e8c3302bafa1efdb36fb8a21a6d695452d";
     $.ajax({
-        url: "https://api.unsplash.com/photos/random?query=desktopwallpaper&client_id=" + key,
+        url: "https://api.unsplash.com/photos/random?query=relationship&client_id=" + key,
         method: "GET"
     }).then(function(data) {
         $("body").css("background-image", `url(${data.urls.full})`)
     })
 }
 
-//limited api calls, uncomment when you want it functional 50req/hour
+//limited api calls, uncomment when you want it functional (50req/hour)
 getWallpaper();
 
   
  
 </script>
+<!-- Kevin Javascript -->
+<script src = "assets/js/logic_frontpage.js"></script>
+<!-- Bianca Javascript -->
 <script src = "assets/js/app.js"></script>   
 </body>
 </html>
