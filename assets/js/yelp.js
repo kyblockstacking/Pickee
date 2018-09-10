@@ -15,6 +15,13 @@ dollars = {
     $$$$: 61
 };
 
+
+console.log(userParams.location);
+console.log(userParams.maxBudget);
+console.log(typeof userParams.location);
+console.log(typeof userParams.maxBudget);
+
+
 // DOM Selections
 // -------------------------------------------------->
 const restaurantColumns = $(".carouselRestaurants .business");

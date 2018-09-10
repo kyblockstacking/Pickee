@@ -19,7 +19,7 @@
 </head>
 <body>
     <!-- Jumbo Tron -->
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid data-home">
         <div class="container1">
             <h1 class="display-4 jumboTitle">Pickee<i class="far fa-heart jumboLogo"></i></h1>
             <h6 class="lead jumboSlogan"><i>Are you Pickee?</i></h6>
@@ -39,16 +39,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="fas fa-search"></i> Front Page</a>
+                    <a class="nav-link" href="file:///C:/Users/franc/Desktop/Date-Night/index.html"><i class="fas fa-search"></i> Front Page</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-utensils"></i> Restaurants</a>
+                    <a class="nav-link nav-restaurants" href="#"><i class="fas fa-utensils"></i> Restaurants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-music"></i> Concerts</a>
+                    <a class="nav-link nav-concerts" href="#"><i class="fas fa-music"></i> Concerts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-trophy"></i> Sporting Events</a>
+                    <a class="nav-link nav-sporting-events" href="#"><i class="fas fa-trophy"></i> Sporting Events</a>
                 </li>
                 
             </ul>
@@ -59,22 +59,17 @@
 
 <!-- Shopping cart -->
 <div class="container">
-<h3 class="categoryTitle">Picked</h3>
 <div class="containerPicked">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 shopping-cart">
             <div class = "your-date">
-                <h4> Your Date </h4> <button class = "btn btn-outline-danger clear">Clear</button> Total: <span class = "total"></span>
+                <h4> Your Pickee Date </h4> 
+                <button class = "btn btn-outline-danger clear">Clear</button>
+                 <div>Estimated Total: <span class="total"></span></div>
             </div>
-            <div class = "picked-events">
+            <div class="picked-events">
 
             </div>
-
-            <!-- <div class="card picked-event">
-                    <div class="card-body">
-                        <h5 class="card-title">Picked #1</h5>
-                    </div>
-            </div> -->
         </div>
 
 
@@ -85,7 +80,7 @@
 
 
 <!-- RESTAURANTS carousel with 4 cards per slide -->
-<h3 class="categoryTitle">Restaurants</h3>
+<h3 class="categoryTitle nav2-restaurants">Restaurants</h3>
 <div class="carouselRestaurants">
 <div id="firstCategory" class="carousel slide" data-ride="carousel" data-interval="false">
         
@@ -173,7 +168,7 @@
 </div>
 
 <!-- CONCERTS carousel with 4 cards per slide -->
-<h3 class="categoryTitle categoryBackground">Concerts</h3>
+<h3 class="categoryTitle categoryBackground nav2-concerts">Concerts</h3>
 <div class="carouselConcerts">
 <div id="secondCategory" class="carousel slide" data-ride="carousel" data-interval="false">
         
@@ -262,7 +257,7 @@
 
 
 <!-- SPORTS carousel with 4 cards per slide -->
-<h3 class="categoryTitle">Sporting Events</h3>
+<h3 class="categoryTitle nav2-sporting-events">Sporting Events</h3>
 <div class="carouselSports">
 <div id="thirdCategory" class="carousel slide" data-ride="carousel" data-interval="false">
         
@@ -312,29 +307,6 @@
                 </div>        
             </div>
         </div>
-
-        <!-- <div class="carousel-item">
-            <div class="row">
-
-                <div class="col-lg-3">
-                    <img class="d-block w-100 rounded" src="assets/images/finn.jpg" alt="Third slide">
-                </div>
-
-                <div class="col-lg-3">
-                    <img class="d-block w-100 rounded" src="assets/images/finn.jpg" alt="Third slide">
-                </div>
-
-                <div class="col-lg-3">  
-                    <img class="d-block w-100 rounded" src="assets/images/finn.jpg" alt="Third slide">
-                </div>
-                
-                <div class="col-lg-3">
-                    <img class="d-block w-100 rounded" src="assets/images/finn.jpg" alt="Third slide">
-
-                </div>        
-            </div>
-        </div> -->
-
     </div>
 
             <a class="carousel-control-prev" href="#thirdCategory" role="button" data-slide="prev">
@@ -352,6 +324,28 @@
 </div>
 
 
+<!-- Footer -->
+<section class="footer">
+    <div class="container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Quick links</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a class="data-home-footer" href="#"><i class="fa fa-angle-double-right"></i>Back to top</a></li>
+                    <li><a class="nav-restaurants" href="#"><i class="fa fa-angle-double-right"></i>Restaurants</a></li>
+                    <li><a class="nav-concerts" href="#"><i class="fa fa-angle-double-right"></i>Concerts</a></li>
+                    <li><a class="nav-sporting-events" href="#"><i class="fa fa-angle-double-right"></i>Sporting Events</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row footer-message">
+            <p class="footer-message">Pickee is web application made by team_awesome: Bianca, Kevin, & Chris</p>
+        </div>	
+    </div>
+</section>
+<!-- ./Footer -->
+
+
 <!-- Linking JQuery Slim-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap JavaScript Bundle -->
@@ -360,6 +354,8 @@
 <script src = "assets/js/app.js"></script>
 <!-- Kevin Javascript -->
 <script src = "assets/js/logic_frontpage.js"></script>
+<!-- Kevin Javascript -->
+<script src = "assets/js/logic_homepage.js"></script>
 <!-- Chris JavaScript -->
 <script src="assets/js/yelp.js"></script>
 
