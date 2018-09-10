@@ -1,14 +1,13 @@
 $(document).ready(function(){
     // variables for ajax call 
 // will replace with jquery locator, using placeholder for now 
-var city = "los angeles"
-
-var date = "20180920"
-var budget = 500;
+var date = localStorage.getItem("date");
+var budget = localStorage.getItem("budget");
+var city = localStorage.getItem("city");
 
 //ticketmaster music events 
 $.ajax({
-    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugXRSfv8iRIcixf8XbiSrD0iIgYgOHFq&classificationName=music&size=50&city=" + city + "&startDate=" + date,
+    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=6mHrAZ3CTRq1nKViJch0zM8cMGHPzav6&classificationName=music&size=50&city=" + city + "&startDate=" + date,
     method: "GET"
 }).then(function(response){
     
