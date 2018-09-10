@@ -61,3 +61,15 @@ body {
     background-color:black;
     opacity: 0.7;
 }
+
+.carousel-item .row {
+    height: 320;
+}
+
+.business {
+    height: 330px;
+}
+
+.business img {
+    height: 200px;
+}
