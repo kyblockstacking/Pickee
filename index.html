@@ -33,13 +33,13 @@
     <!-- Budget form -->
     <select class="form-control" id="budgetInput">
             <option>Select budget</option>
-            <option>$</option>
-            <option>$$</option>
-            <option>$$$</option>
-            <option>$$$$</option>
+            <option value="70">~$10-70</option>
+            <option value="140">~$71-140</option>
+            <option value="230">~$141-230</option>
+            <option value="1000">~$231+</option>
     </select>
-    <!-- Zip code form -->
-    <input type="text" class="form-control mb-2 mr-sm-2" id="zipInput" placeholder="City destination">
+    <!-- City code form -->
+    <input type="text" class="form-control mb-2 mr-sm-2" id="cityInput" placeholder="City destination">
 
 </form>      
 
@@ -63,7 +63,7 @@ function getWallpaper() {
 }
 
 //limited api calls, uncomment when you want it functional (50req/hour)
-getWallpaper();
+// getWallpaper();
 
   
  
