@@ -53,8 +53,8 @@ var total;
 $(document).on("click", ".favorite", function(){
     var eventDiv = $("<div class = chosen-div>")
     var eventChosen = $("<img class = 'img-picked'>").attr("src", $(this).attr("event-image"));
-    var eventTitle = $("<h6>").append($(this).attr("event-name"));
-    var eventPrice = $("<h6>").text('$' + $(this).attr("event-price"));
+    var eventTitle = $("<h6 class = 'favorite-title'>").append($(this).attr("event-name"));
+    var eventPrice = $("<h6 class = 'favorite-title'>").text('$' + $(this).attr("event-price"));
     eventDiv.attr("chosen-price", $(this).attr("event-price"))
     eventDiv.append(eventChosen, eventTitle, eventPrice);
     $(".picked-events").append(eventDiv);

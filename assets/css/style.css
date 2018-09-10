@@ -4,7 +4,7 @@ h4, .chosen-div {
 }
 
 
-h6 {
+.favorite-title {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -17,3 +17,4 @@ h4 {
 .clear {
     margin-right: 100px;
 }
+
