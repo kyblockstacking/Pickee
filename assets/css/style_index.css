@@ -1,11 +1,50 @@
 body {
-    height: 10vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
+background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.banner {
+    text-align: center;
+    margin-top: 10%;
+    background-color: white;
+    opacity: 0.7;
+    padding-bottom: 1%;
+}
+
+.brandName {
+    font-family: 'Rouge Script';
+    font-size: 120px;
+    color: teal;
+    opacity: 0.6;
+}
+
+.brandSlogan {
+    font-family: 'Rouge Script';
+    color: #2f4f4f;
+    font-size: 30px;
+    margin-top: -3.5%;
+    margin-left: 10%;
+    opacity: 0.9;
+}
+
+.brandLogo {
+    font-size: 20px;
 }
 
 .form-inline {
     text-align: center;
-    margin-top: 20%;
+    margin-top: 2%;
+}
+
+.button_start {
+    margin-top: 0.5%;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+}
+
+#submit_button {
+    font-size: 25px;
 }
