@@ -18,7 +18,7 @@ dollars = {
 
 // DOM Selections
 // -------------------------------------------------->
-
+const restaurantColumns = $(".carouselRestaurants .business");
 
 // Functions
 // -------------------------------------------------->
@@ -49,26 +49,23 @@ const sortYelpBusinesses = (businesses) => {
         return 0;
     });
 
-    return byBestRating.splice(0, 10);
+    return byBestRating.splice(0, 12);
 };
 
-// Create single yelp business element -->
-const createSingleYelpElement = (business) => {
-    const $div = $("<div>").html(`
-        <img src="${business.image_url}" alt="${business.name}" />
-        <h4>${business.name}</h4>
-        <h4>Price: ${dollars[business.price]}</h4>
-        <h4>Rating: ${business.rating}/5</h4>
-        <p>Phone: ${business.phone}</p>
-    `);
-    return $div;
-};
-
-// Create yelp business elements -->
-const createYelpBusinessElements = (businesses) => {
-    const $documentFrag = $(document.createDocumentFragment());
-    businesses.forEach(business => $documentFrag.append(createSingleYelpElement(business)));
-    return $documentFrag;
+// Append yelp business elements -->
+const appendYelpBusinessElements = (businesses) => {
+    restaurantColumns.each(function(index) {
+        $(this).find("img").attr("src", businesses[index].image_url);
+        $(this).append(`
+            <p class="my-0">
+                <a href="${businesses[index].url}" target="_blank">${businesses[index].name}</a>
+            </p>
+            <p class="my-0">Rating: ${businesses[index].rating}</p>
+            <p class="my-0">Price: $${dollars[businesses[index].price].toFixed(2)}
+                <button style="margin-left: 70px;" class="btn btn-sm btn-outline-danger favorite" event-image="${businesses[index].image_url}" event-name="${businesses[index].name}" event-price="${dollars[businesses[index].price]}"><i class="far fa-heart"></i></button>
+            </p>
+        `);
+    });
 };
 
 // Get, sort, create & display yelp business elements -->
@@ -85,14 +82,13 @@ const getSortCreateYelpBusinessElements = (userParams) => {
     }).then(res => {
         const {businesses} = res,
         sortedBusinesses = sortYelpBusinesses(businesses);
-        $businessElements = createYelpBusinessElements(sortedBusinesses);
-        // TEST: -->
-        console.log($businessElements);
+        appendYelpBusinessElements(sortedBusinesses);
+
+        // TEST:
+        console.log(sortedBusinesses);
     });
 };
 
-// TEST: -->
-getSortCreateYelpBusinessElements(userParams);
-
 // Main
 // -------------------------------------------------->
+getSortCreateYelpBusinessElements(userParams);
