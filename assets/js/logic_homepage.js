@@ -35,4 +35,10 @@ $(document).ready(function () {
             'slow');
     });
 
+
+    $('.disclaimer').click (function () {
+        $('#myInput').trigger('focus')
+    })
+
+
 });

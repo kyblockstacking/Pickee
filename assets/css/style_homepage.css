@@ -20,6 +20,10 @@ body {
     opacity: 0.6;
 }
 
+.jumboTitle:hover {
+    cursor: url("../images/heart_hover.png"), auto;
+}
+
 .jumboSlogan {
     font-family: 'Rouge Script';
     color: #2f4f4f;
@@ -27,6 +31,10 @@ body {
     margin-top: -4.5%;
     margin-left: 10%;
     opacity: 0.9;
+}
+
+.jumboSlogan:hover {
+    cursor: default;
 }
 
 .jumboLogo {
@@ -154,4 +162,19 @@ a:hover {
 
 .carouselRestaurants, .carouselConcerts, .carouselSports {
     font-family: 'Arima Madurai', cursive;
+}
+
+.disclaimer-button {
+    font-size: 8px;
+    color: teal;
+    padding: 0.5%;
+    border: 1px dotted teal;
+}
+
+.modal-body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.disclaimer-button:hover {
+    cursor: help;
 }
