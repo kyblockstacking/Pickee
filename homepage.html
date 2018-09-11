@@ -19,7 +19,6 @@
     <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:400,800" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>Pickee Homepage</title>
 </head>
@@ -40,7 +39,7 @@
         <div class="navbar-collapse collapse w-100 justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav justify-content-center">
                 <li class="nav-item active">
-                        <a class="nav-link" href="index.html"><i class="fas fa-calendar-check nav-logo"></i> Pickee Select</a>
+                    <a class="nav-link" href="index.html"><i class="fas fa-calendar-check nav-logo"></i> Pickee Select</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-restaurants" href="#"><i class="fas fa-utensils nav-logo"></i> Restaurants</a>
@@ -52,11 +51,30 @@
                     <a class="nav-link nav-sporting-events" href="#"><i class="fas fa-trophy nav-logo"></i> Sporting
                         Events</a>
                 </li>
-
             </ul>
         </div>
     </nav>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pickee disclaimer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Prices are subject to change without notice. Estimated total and budget are estimates and may not
+                    be accurate. Pickee has no affiliation with any companies mentioned or shown. Pickee is a web app
+                    made by team_awesome: Bianca, Kevin, and Chris.
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Shopping cart -->
@@ -73,7 +91,7 @@
                             <div class="col-lg-10 est-clear estimated">
                                 Estimated Total: $<span class="total"></span>
                                 <p class="budget">Your Budget: $<span class="show-budget"></span></p>
-                                <p class = "over"></p>
+                                <p class="over"></p>
                             </div>
                             <div class="col-lg-2 est-clear">
                                 <button class="btn btn-outline-danger clear">Clear</button>
@@ -372,12 +390,16 @@
             </div>
             <div class="row footer-message">
                 <div class="col-lg-12 footer-message">
+                    <!-- Button trigger modal -->
+                    <span class="disclaimer-button" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-info-circle"></i> Pickee disclaimer
+                    </span>
                     <p class="footer-message">Pickee is a web application made by team_awesome: Bianca, Kevin, & Chris</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ./Footer -->
+    <!-- Footer end -->
 
 
     <!-- Linking JQuery Slim-->
