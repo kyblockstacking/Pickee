@@ -68,7 +68,7 @@ const appendYelpBusinessElements = (businesses) => {
         $(this).find("img").attr("src", image_url);
         $(this).append(`
             <p class="my-0">
-                <a href="${url}" target="_blank">${name}</a>
+                <a href="${url}" class="data-url-link" target="_blank">${name}</a>
             </p>
             <p class="my-0">Rating: ${rating}</p>
             <p class="my-0">Price: $${price.toFixed(2)}
