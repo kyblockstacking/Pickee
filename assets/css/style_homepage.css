@@ -76,12 +76,17 @@ body {
 }
 
 .shopping-cart {
+    font-family: 'Arima Madurai', cursive;
+    
 }
 
 .picked-events {
-    border: 10px solid red;
-    padding: 20px;
-    height: 250px;
+    background-color:rgba(255,160,122 ,.4);
+    padding: 20px 60px 20px 60px;
+    border-radius: 20px;
+    overflow: auto;
+    display: none;
+
 }
 
 .footer {
