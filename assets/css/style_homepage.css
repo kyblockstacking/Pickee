@@ -79,6 +79,11 @@ body {
     border-bottom: 2px solid#a3c1ad;
 }
 
+.data-url-link-2:hover {
+    color: 	#a3c1ad;
+    text-decoration: none;
+    
+}
 .carousel-control-prev {
     margin-top: 10%;
     left: -2%;
