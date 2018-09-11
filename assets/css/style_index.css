@@ -61,16 +61,27 @@ background: no-repeat center center fixed;
     margin-right: auto;
     margin-left:auto;
     font-family: 'Times New Roman', Times, serif;
-    color: gray;
+    color: red;
+    
+    /* text-shadow:
+    -1px -1px 0 red,
+    1px -1px 0 red,
+    -1px 1px 0 red,
+    1px 1px 0 red;   */
     
 }
 
+
+
 .c-date {
     text-align: right;
+    
 }
 .c-city {
     text-align: left;
+    
 }
 .c-budget {
     text-align: center;
+    
 }

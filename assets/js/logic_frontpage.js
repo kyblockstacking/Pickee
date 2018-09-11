@@ -1,7 +1,7 @@
 $(document).ready(function () {
 // Saves user input when submit button is clicked
     $("#submit_button").click(function(){
-
+        localStorage.removeItem("favs");
         var date_input = $("#dateInput").val();
         var budget_input = $("#budgetInput option:selected").val();
         var city_input = $("#cityInput").val();
