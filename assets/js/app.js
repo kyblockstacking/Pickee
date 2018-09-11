@@ -205,7 +205,7 @@ $(document).ready(function () {
 
             $(this).find("img").attr("src", eventImage);
             $(this).append(`
-            <p><a href= "${eventUrl}" class ="data-url-link-" target = '_blank'>${eventName}</a></p>
+            <p><a href= "${eventUrl}" class ="data-url-link" target = '_blank'>${eventName}</a></p>
             <h5>${eventDate}</h5> 
             <h5>$${eventPrice}<button style='margin-left: 70px;' class = 'btn btn-sm btn-outline-danger favorite' event-image ="${eventImage}" event-name = "${eventName}" event-price = "${eventPrice}" event-url = "${eventUrl}"><i class='far fa-heart'></i></button> </h5>
         `);
