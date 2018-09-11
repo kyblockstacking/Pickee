@@ -37,6 +37,8 @@ background: no-repeat center center fixed;
 .form-inline {
     text-align: center;
     margin-top: 2%;
+    font-family: 'Times New Roman', Times, serif;
+    
 }
 
 .button_start {
@@ -47,4 +49,28 @@ background: no-repeat center center fixed;
 
 #submit_button {
     font-size: 25px;
+}
+
+.wrong-input {
+    border: 1px solid rgba(255,69,0 ,1);
+    
+}
+
+.wrong-format {
+    width: 60%;
+    margin-right: auto;
+    margin-left:auto;
+    font-family: 'Times New Roman', Times, serif;
+    color: gray;
+    
+}
+
+.c-date {
+    text-align: right;
+}
+.c-city {
+    text-align: left;
+}
+.c-budget {
+    text-align: center;
 }
