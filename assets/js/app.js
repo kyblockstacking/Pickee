@@ -5,6 +5,7 @@ $(document).ready(function () {
     var budget = localStorage.getItem("budget");
     var city = localStorage.getItem("city");
 
+    $(".show-budget").text(budget);
     //ticketmaster music events 
     $.ajax({
         url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=6mHrAZ3CTRq1nKViJch0zM8cMGHPzav6&classificationName=music&size=50&city=" + city + "&startDate=" + date,
@@ -47,23 +48,25 @@ $(document).ready(function () {
 
     })
     var chosenPrices = [];
-    var total;
+    var total = 0;
     var favorites = {}
+    $(".total").text(total);
     $(document).on("click", ".favorite", function () {
+        $(".picked-events").show();
         var eventDiv = $("<div class = chosen-div>")
         var eventChosen = $("<img class = 'img-picked'>").attr("src", $(this).attr("event-image"));
         var eventTitle = $("<h6 class = 'favorite-title'>").append(`
         <p><a href= "${$(this).attr("event-url")}" target = '_blank'>${$(this).attr("event-name")}</a></p> 
         `);
         var eventPrice = $("<h6 class = 'favorite-title'>").text('$' + $(this).attr("event-price") + " x ");
-        var counter = $("<span data-id = '" + $(this).attr("event-name") + "'>");
+        var counter = $("<span data-id = '" + $(this).attr("event-name").replace("'","")+ "'>");
         eventPrice.append(counter);
         eventDiv.attr("chosen-price", $(this).attr("event-price"))
         eventDiv.append(eventChosen, eventTitle, eventPrice);
         if ($(this).attr("event-name") in favorites) {
             console.log("inside");
             favorites[$(this).attr("event-name")]++;
-            $("span[data-id = '" + $(this).attr("event-name")+"']").text(favorites[$(this).attr("event-name")]);
+            $("span[data-id = '" + $(this).attr("event-name").replace("'","")+"']").text(favorites[$(this).attr("event-name")]);
            
         }
         else {
@@ -76,14 +79,24 @@ $(document).ready(function () {
         }
         console.log(favorites);
         counter.text(favorites[$(this).attr("event-name")]);
-        
+        // update total every time a new event is added to favorites 
         chosenPrices.push(parseFloat(eventDiv.attr("chosen-price")));
         total = chosenPrices.reduce(add, 0);
         $(".total").text(total);
-
+        
+        if (total > parseFloat(budget)){
+            var overBudget = $("<p class = 'budget over'>").text("Over Budget!");
+            $(".budget").append(overBudget);
+            $(".picked-events").addClass("over-budget");
+        }
     })
+    
+    
     $(document).on("click", ".clear", function () {
         $(".picked-events").empty();
+        $(".picked-events").hide();
+        $(".over").empty();
+        $(".picked-events").removeClass("over-budget");
         chosenPrices = [];
         total = 0;
         favorites = {};

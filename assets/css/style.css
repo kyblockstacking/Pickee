@@ -1,11 +1,24 @@
 h4, .chosen-div {
     display: inline-block;
     text-align: center;
+    
+     
+}
+.chosen-div {
+    
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 250px;
+    margin-bottom: 8px;
+    background-color: rgba(255,245,238 ,.5);
+    
+    
 }
 
 
 .favorite-title {
-    width: 90%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -15,6 +28,48 @@ h4 {
 }
 
 .clear {
-    margin-right: 100px;
+    margin-left: 100px;
+    padding: 1px 5px 1px 5px;
 }
 
+.img-picked {
+    max-width: 200px;
+    max-height: 180px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+.your-date {
+    text-align: center;
+    font-size: 40px;
+}
+
+.est-clear {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.budget {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.over-budget {
+    background-color:rgba(255,69,0 ,.5);
+}
+
+.estim-clear {
+    background-color:rgba(255,160,122 ,.4);
+    padding-top: 10px;
+    border-radius: 10px;
+    height: 45px;
+    margin-bottom: 20px;
+    width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+}

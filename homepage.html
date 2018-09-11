@@ -15,6 +15,8 @@
     <link rel="icon" type="image/png" href="assets/images/favicon/heart.png" />
     <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:400,800" rel="stylesheet">
+
     <title>Pickee Homepage</title>
 </head>
 <body>
@@ -39,7 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="file:///C:/Users/franc/Desktop/Date-Night/index.html"><i class="fas fa-search"></i> Front Page</a>
+                    <a class="nav-link" href="index.html"><i class="fas fa-search"></i> Front Page</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-restaurants" href="#"><i class="fas fa-utensils"></i> Restaurants</a>
@@ -63,12 +65,22 @@
     <div class="row">
         <div class="col-lg-12 shopping-cart">
             <div class = "your-date">
-                <h4> Your Pickee Date </h4> 
-                <button class = "btn btn-outline-danger clear">Clear</button>
-                 <div>Estimated Total: <span class="total"></span></div>
+                <p> Your Pickee Date </p> 
+                
             </div>
-            <div class="picked-events">
+            <div >
+                <div class = "row estim-clear">
+                    <div class = "col-lg-10 est-clear estimated">
+                            Estimated Total: $<span class="total"></span> <p class = "budget">Your Budget: $<span class = "show-budget"></span></p>
+                    </div>
+                    <div class = "col-lg-2 est-clear">
+                        <button class = "btn btn-outline-danger clear">Clear</button>
+                    </div>
+                </div>
+                <div class = "picked-events">
 
+                </div>
+                   
             </div>
         </div>
 

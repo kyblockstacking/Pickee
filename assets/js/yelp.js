@@ -72,7 +72,7 @@ const appendYelpBusinessElements = (businesses) => {
             </p>
             <p class="my-0">Rating: ${rating}</p>
             <p class="my-0">Price: $${price.toFixed(2)}
-                <button style="margin-left: 70px;" class="btn btn-sm btn-outline-danger favorite" event-image="${image_url}" event-name="${name}" event-price="${price}"><i class="far fa-heart"></i></button>
+                <button style="margin-left: 70px;" class="btn btn-sm btn-outline-danger favorite" event-image="${image_url}" event-name="${name}" event-price="${price}" event-url = "${url}"><i class="far fa-heart"></i></button>
             </p>
         `);
     });
