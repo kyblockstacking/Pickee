@@ -54,9 +54,12 @@ h4 {
     margin-bottom: 20px;
 }
 
-.budget {
+.budget, .over {
     display: inline-block;
     margin-left: 40px;
+}
+.over {
+    color: red;
 }
 
 .over-budget {
