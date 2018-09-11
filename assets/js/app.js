@@ -50,13 +50,14 @@ $(document).ready(function () {
     var chosenPrices = [];
     var total = 0;
     var favorites = {}
+    var over = false;
     $(".total").text(total);
     $(document).on("click", ".favorite", function () {
         $(".picked-events").show();
         var eventDiv = $("<div class = chosen-div>")
         var eventChosen = $("<img class = 'img-picked'>").attr("src", $(this).attr("event-image"));
         var eventTitle = $("<h6 class = 'favorite-title'>").append(`
-        <p><a href= "${$(this).attr("event-url")}" target = '_blank'>${$(this).attr("event-name")}</a></p> 
+        <p><a class = "data-url-link" href= "${$(this).attr("event-url")}" target = '_blank'>${$(this).attr("event-name")}</a></p> 
         `);
         var eventPrice = $("<h6 class = 'favorite-title'>").text('$' + $(this).attr("event-price") + " x ");
         var counter = $("<span data-id = '" + $(this).attr("event-name").replace("'","")+ "'>");
@@ -84,9 +85,10 @@ $(document).ready(function () {
         total = chosenPrices.reduce(add, 0);
         $(".total").text(total);
         
-        if (total > parseFloat(budget)){
+        if (total > parseFloat(budget) && (over === false)){
+            over = true;
             var overBudget = $("<p class = 'budget over'>").text("Over Budget!");
-            $(".budget").append(overBudget);
+            $(".over").append(overBudget);
             $(".picked-events").addClass("over-budget");
         }
     })
@@ -97,6 +99,7 @@ $(document).ready(function () {
         $(".picked-events").hide();
         $(".over").empty();
         $(".picked-events").removeClass("over-budget");
+        over = false;
         chosenPrices = [];
         total = 0;
         favorites = {};
