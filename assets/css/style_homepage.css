@@ -104,6 +104,7 @@ body {
 
 .shopping-cart {
     font-family: 'Arima Madurai', cursive;
+    color: teal;
     
 }
 
@@ -143,14 +144,14 @@ a:hover {
 }
 
 .category-background {
-    background-color: rgba(255, 182, 193, 0.3);
+    background-color:rgba(255,218,185 ,.7)
 }
 
 .categoryTitle {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Arima Madurai', cursive;
     color: teal;
 }
 
-.carouselRestaurants {
-    font-family: 'Ubuntu', sans-serif;
+.carouselRestaurants, .carouselConcerts, .carouselSports {
+    font-family: 'Arima Madurai', cursive;
 }
