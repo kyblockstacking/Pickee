@@ -28,7 +28,7 @@ h4 {
 }
 
 .clear {
-    margin-left: 100px;
+    text-align: right;
     padding: 1px 5px 1px 5px;
 }
 
@@ -72,7 +72,7 @@ h4 {
     border-radius: 10px;
     height: 45px;
     margin-bottom: 20px;
-    width: 1110px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
