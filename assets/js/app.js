@@ -46,39 +46,94 @@ $(document).ready(function () {
 
         });
 
-    })
+    });
+
     var chosenPrices = [];
     var total = 0;
     var favorites = {}
     var over = false;
+    var favString = localStorage.getItem("favs");
+    var favs = favString ? JSON.parse(favString) : [];
+
     $(".total").text(total);
+
+    if (favs.length > 0) {
+        $(favs).each(function(index) {
+            var $div = $("<div class='chosen-div'>");
+            var $counter = $(`<span data-id="${favs[index].count}">`);
+            var $favImage = $("<img class='img-picked' />").attr("src", favs[index].image);
+            var $favTitle = $(`
+                <h6 class="favorite-title">
+                    <p>
+                        <a href="${favs[index].url}" target="_blank">${favs[index].name}</a>
+                    </p>
+                </h6>
+            `)
+            var $favPrice = $(`<h6 class="favorite-title">$${favs[index].price} x ${favs[index].count}</h6>`);
+
+            $favPrice.append($counter);
+            $div.attr("chosen-price", favs[index].price);
+            $div.append($favImage, $favTitle, $favPrice);
+
+            chosenPrices.push(parseFloat(favs[index].price * favs[index].count));
+            total = chosenPrices.reduce(add, 0);
+            $(".total").text(total);
+            
+            
+            $(".picked-events").append($div);
+            $(".picked-events").show();
+
+            if (total > parseFloat(budget) && !over) {
+                var overBudget = $("<p class='budget over'>").text("Over Budget!");
+                over = true;
+                $(".budget").append(overBudget);
+                $(".picked-events").addClass("over-budget");
+            }
+        });
+    }
+
     $(document).on("click", ".favorite", function () {
         $(".picked-events").show();
-        var eventDiv = $("<div class = chosen-div>")
+        var eventDiv = $("<div class = chosen-div>");
+        var counter = $("<span data-id = '" + $(this).attr("event-name").replace("'", "") + "'>");
         var eventChosen = $("<img class = 'img-picked'>").attr("src", $(this).attr("event-image"));
         var eventTitle = $("<h6 class = 'favorite-title'>").append(`
         <p><a class = "data-url-link" href= "${$(this).attr("event-url")}" target = '_blank'>${$(this).attr("event-name")}</a></p> 
         `);
         var eventPrice = $("<h6 class = 'favorite-title'>").text('$' + $(this).attr("event-price") + " x ");
-        var counter = $("<span data-id = '" + $(this).attr("event-name").replace("'","")+ "'>");
         eventPrice.append(counter);
-        eventDiv.attr("chosen-price", $(this).attr("event-price"))
+        eventDiv.attr("chosen-price", $(this).attr("event-price"));
         eventDiv.append(eventChosen, eventTitle, eventPrice);
-        if ($(this).attr("event-name") in favorites) {
+
+        favString = localStorage.getItem("favs");
+        favs = favString ? JSON.parse(favString) : favs;
+
+        var eventNameString = $(this).attr("event-name");
+        
+        if (eventNameString in favorites && favorites.hasOwnProperty(eventNameString)) {
             console.log("inside");
-            favorites[$(this).attr("event-name")]++;
-            $("span[data-id = '" + $(this).attr("event-name").replace("'","")+"']").text(favorites[$(this).attr("event-name")]);
-           
-        }
-        else {
+            favorites[eventNameString]++;
+            $("span[data-id = '" + eventNameString.replace("'","")+"']").text(favorites[eventNameString]);
+            
+            var index = favs.findIndex((fav) => fav.name === eventNameString);
+            favs[index].count += 1;
+        } else {
             console.log("outisde");
-            favorites[$(this).attr("event-name")] = 1;
+            favorites[eventNameString] = 1;
             $(".picked-events").append(eventDiv);
-            counter.text(favorites[$(this).attr("event-name")]);
-            
-            
+            counter.text(favorites[eventNameString]);
+
+            favs.push({
+                image: $(this).attr("event-image"),
+                name: eventNameString,
+                price: $(this).attr("event-price"),
+                url: $(this).attr("event-url"),
+                count: favorites[eventNameString]
+            });
         }
-        console.log(favorites);
+
+        localStorage.setItem("favs", JSON.stringify(favs));  
+
         counter.text(favorites[$(this).attr("event-name")]);
         // update total every time a new event is added to favorites 
         chosenPrices.push(parseFloat(eventDiv.attr("chosen-price")));
@@ -104,6 +159,8 @@ $(document).ready(function () {
         total = 0;
         favorites = {};
         $(".total").text(total);
+        localStorage.removeItem("favs");
+        favs = [];
     })
 
     function add(a, b) {
