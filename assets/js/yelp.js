@@ -15,13 +15,6 @@ dollars = {
     $$$$: 61
 };
 
-
-console.log(userParams.location);
-console.log(userParams.maxBudget);
-console.log(typeof userParams.location);
-console.log(typeof userParams.maxBudget);
-
-
 // DOM Selections
 // -------------------------------------------------->
 const restaurantColumns = $(".carouselRestaurants .business");
@@ -94,9 +87,6 @@ const getSortCreateYelpBusinessElements = (userParams) => {
         businessesWithPrices = getBusinessesWithPrices(businesses),
         sortedBusinesses = sortYelpBusinesses(businessesWithPrices);
         appendYelpBusinessElements(sortedBusinesses);
-
-        // TEST:
-        console.log(sortedBusinesses);
     });
 };
 
