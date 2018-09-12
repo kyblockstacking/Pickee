@@ -21,10 +21,8 @@ $(document).ready(function () {
         var eventsInBudget = eventsWithPriceRanges.filter(function (event) {
             return event.priceRanges[0].max <= budget;
         });
-        console.log(eventsInBudget);
         // creates array with only 12 events 
         eventsInBudget = eventsInBudget.slice(0, 12);
-        console.log(eventsInBudget);
 
         var concertCarouselItems = $(".carouselConcerts .carousel-item .concert");
 
@@ -111,14 +109,12 @@ $(document).ready(function () {
         var eventNameString = $(this).attr("event-name");
         
         if (eventNameString in favorites && favorites.hasOwnProperty(eventNameString)) {
-            console.log("inside");
             favorites[eventNameString]++;
             $("span[data-id = '" + eventNameString.replace("'","")+"']").text(favorites[eventNameString]);
             
             var index = favs.findIndex((fav) => fav.name === eventNameString);
             favs[index].count += 1;
         } else {
-            console.log("outisde");
             favorites[eventNameString] = 1;
             $(".picked-events").append(eventDiv);
             counter.text(favorites[eventNameString]);
@@ -175,20 +171,16 @@ $(document).ready(function () {
     }).then(function (response) {
 
         var sportsEvents = response._embedded.events;
-        console.log(sportsEvents);
 
         var eventsWithPriceRanges = sportsEvents.filter(function (event) {
             return event.priceRanges;
         });
-        console.log(eventsWithPriceRanges);
 
         var eventsInBudget = eventsWithPriceRanges.filter(function (event) {
             return event.priceRanges[0].min <= budget;
         });
-        console.log(eventsInBudget);
 
         eventsInBudget = eventsInBudget.slice(0, 12);
-        console.log(eventsInBudget);
 
 
         var sportsCarouselItems = $(".carouselSports .carousel-item .sports");
