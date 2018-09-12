@@ -1,6 +1,5 @@
 node_modules
-*.json
-*.lock
+*.log
 .vscode
 .DS_Store
 
